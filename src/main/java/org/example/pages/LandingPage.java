@@ -23,11 +23,8 @@ public class LandingPage extends BasePage {
     }
 
     public boolean isAcceptSuccessful() {
-        try {
-            driver.findElement(TERMS_AND_CONDITIONS_BUTTON);
+        if (driver.findElement(TERMS_AND_CONDITIONS_BUTTON).isDisplayed()) {
             return false;
-        } catch (Exception e) {
-            return true;
-        }
+        } else return true;
     }
 }

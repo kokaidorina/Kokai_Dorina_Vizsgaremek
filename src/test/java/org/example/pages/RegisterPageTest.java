@@ -2,6 +2,7 @@ package org.example.pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -41,5 +42,6 @@ public class RegisterPageTest {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
         registerPage.registerNewUser("testA", "123","abc@abc.hu", "something exciting");
+
     }
 }

@@ -41,7 +41,7 @@ class LandingPageTest {
     void testAcceptTermsAndConditions() {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
-        Assertions.assertTrue(landingPage.isAcceptSuccessful()); //accept button not disappearing
+        Assertions.assertTrue(landingPage.isAcceptSuccessful());
     }
 
 
