@@ -9,10 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class RegisterPageTest {
+public class LoginPageTest {
     WebDriver driver;
     private LandingPage landingPage;
     private RegisterPage registerPage;
+    private LoginPage loginPage;
 
     @BeforeEach
     void setUp() {
@@ -25,28 +26,35 @@ public class RegisterPageTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-extensions");
-       // options.addArguments("--headless");
+        // options.addArguments("--headless");
         options.addArguments("--window-size=1920,1080");
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
 
         landingPage = new LandingPage(driver);
         registerPage=new RegisterPage(driver);
+        loginPage=new LoginPage(driver);
     }
     @AfterEach
     void quitBrowser() {
         driver.quit();
     }
     @Test
-    public void testRegister(){
-        String userNameTestData="testA";
-        String passwordTestData="123";
-        String emailTestData="abc@abc.hu";
-        String descriptionTestData="something exciting";
+    public void testLogin(){
+        String userNameTestData="lovasia";
+        String passwordTestData="kispal123";
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
-        registerPage.registerNewUser(userNameTestData, passwordTestData,emailTestData, descriptionTestData);
+        loginPage.login(userNameTestData, passwordTestData);
+        Assertions.assertTrue(loginPage.isLoginSuccessful());
+    }
+    @Test
+    public void testLoginWithInvalidDatas(){
+        String userNameTestData="invalid";
+        String passwordTestData="password";
         landingPage.navigateToLandingPage();
-        Assertions.assertTrue(registerPage.isRegistrationSuccessful(userNameTestData,passwordTestData));
+        landingPage.acceptTermsAndConditions();
+        loginPage.login(userNameTestData, passwordTestData);
+        Assertions.assertFalse(loginPage.isLoginSuccessful());
     }
 }

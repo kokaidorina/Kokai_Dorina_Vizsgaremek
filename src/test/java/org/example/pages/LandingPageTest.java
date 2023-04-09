@@ -14,7 +14,7 @@ class LandingPageTest {
     WebDriver driver;
     private LandingPage landingPage;
 
-    @BeforeEach
+   @BeforeEach
     void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
