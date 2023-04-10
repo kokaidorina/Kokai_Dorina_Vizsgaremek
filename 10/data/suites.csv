@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Apr 10 13:17:01 GMT 2023","Mon Apr 10 13:17:03 GMT 2023","2186","","org.example.pages.ProfileModificationTest","","org.example.pages.ProfileModificationTest","testProfileModification","testProfileModification()",""
+"passed","Mon Apr 10 13:17:05 GMT 2023","Mon Apr 10 13:17:06 GMT 2023","1203","","org.example.pages.LogoutPageTest","","org.example.pages.LogoutPageTest","testLogout","testLogout()",""
+"passed","Mon Apr 10 13:17:03 GMT 2023","Mon Apr 10 13:17:04 GMT 2023","1643","","org.example.pages.RegisterPageTest","","org.example.pages.RegisterPageTest","testRegister","testRegister()",""
+"passed","Mon Apr 10 13:16:50 GMT 2023","Mon Apr 10 13:17:01 GMT 2023","10833","","org.example.pages.LoginPageTest","","org.example.pages.LoginPageTest","testLoginWithInvalidDatas","testLoginWithInvalidDatas()",""
+"passed","Mon Apr 10 13:17:04 GMT 2023","Mon Apr 10 13:17:05 GMT 2023","531","","org.example.pages.LandingPageTest","","org.example.pages.LandingPageTest","testAcceptTermsAndConditions","testAcceptTermsAndConditions()",""
+"passed","Mon Apr 10 13:16:26 GMT 2023","Mon Apr 10 13:16:50 GMT 2023","23751","","org.example.pages.LoginPageTest","","org.example.pages.LoginPageTest","testLogin","testLogin()",""
