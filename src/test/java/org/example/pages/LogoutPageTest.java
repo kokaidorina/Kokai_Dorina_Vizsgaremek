@@ -1,7 +1,6 @@
 package org.example.pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,36 +9,36 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
-class LandingPageTest {
+public class LogoutPageTest {
     WebDriver driver;
     private LandingPage landingPage;
+    private RegisterPage registerPage;
+    private LoginPage loginPage;
+    private LogoutPage logoutPage;
 
-   @BeforeEach
+    @BeforeEach
     void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = BaseTest.getWebDriver();
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         landingPage = new LandingPage(driver);
+        registerPage=new RegisterPage(driver);
+        loginPage=new LoginPage(driver);
+        logoutPage=new LogoutPage(driver);
     }
     @AfterEach
     void quitBrowser() {
         driver.quit();
     }
-
     @Test
-    void testAcceptTermsAndConditions() {
+    public void testLogout(){
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
-        Assertions.assertTrue(landingPage.isAcceptSuccessful());
+        String userNameTestData="lovasia";
+        String passwordTestData="kispal123";
+        loginPage.login(userNameTestData,passwordTestData);
+        logoutPage.logout();
+        Assertions.assertTrue(logoutPage.isLogoutSuccessful());
     }
-   /* @Test
-    public void TestNotAcceptTermsAndConditions() {
-       landingPage.navigateToLandingPage();
-       landingPage.notAcceptTermsAndConditions();
-       Assertions.assertFalse(landingPage.isAcceptSuccessful());
-    }*/
-
-
-
 }
