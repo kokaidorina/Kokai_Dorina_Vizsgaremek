@@ -37,6 +37,7 @@ public class RegisterPageTest {
         landingPage.acceptTermsAndConditions();
         registerPage.registerNewUser(userNameTestData, passwordTestData,emailTestData, descriptionTestData);
         landingPage.navigateToLandingPage();
+        BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(registerPage.isRegistrationSuccessful(userNameTestData,passwordTestData));
     }
 }

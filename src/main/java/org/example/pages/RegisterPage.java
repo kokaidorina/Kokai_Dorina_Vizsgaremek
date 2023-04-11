@@ -3,11 +3,7 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 
 public class RegisterPage extends BasePage {
     //constructor
@@ -46,7 +42,7 @@ public class RegisterPage extends BasePage {
         driver.findElement(USERNAME_FIELD).sendKeys(userName, Keys.TAB);
         driver.findElement(PASSWORD_FIELD).sendKeys(password);
         driver.findElement(LOGIN_SUBMIT_BUTTON).click();
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(driver.findElement(LOGOUT_BUTTON)));
+        BasePage.waitForElementVisibility(LOGOUT_BUTTON);
         if (driver.findElement(LOGOUT_BUTTON).isDisplayed()) {
             return true;
         } else return false;

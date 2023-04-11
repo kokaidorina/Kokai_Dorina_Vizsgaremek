@@ -29,7 +29,7 @@ public class ProfileModificationTest {
         logoutPage=new LogoutPage(driver);
         profileModificationPage=new ProfileModificationPage(driver);
     }
-  //  @AfterEach
+    @AfterEach
     void quitBrowser() {
         driver.quit();
     }
@@ -44,12 +44,12 @@ public class ProfileModificationTest {
         String descriptionTestData="something exciting";
         registerPage.registerNewUser(userNameTestData,passwordTestData,emailTestData,descriptionTestData);
         landingPage.navigateToLandingPage();
-       // landingPage.acceptTermsAndConditions();
         loginPage.login(userNameTestData,passwordTestData);
         String nameTestData="Automation";
         String bioTestData="something bio";
         String phoneTestData="+36123456789";
         profileModificationPage.modifyProfile(nameTestData, bioTestData, phoneTestData);
+        BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(profileModificationPage.isProfileModificationSuccesful());
     }
 }

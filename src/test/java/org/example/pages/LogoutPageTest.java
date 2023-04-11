@@ -39,6 +39,7 @@ public class LogoutPageTest {
         String passwordTestData="kispal123";
         loginPage.login(userNameTestData,passwordTestData);
         logoutPage.logout();
+        BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(logoutPage.isLogoutSuccessful());
     }
 }

@@ -12,7 +12,7 @@ public class LandingPage extends BasePage {
     //locators, test datas
     String LANDING_PAGE = "https://lennertamas.github.io/portio/";
     private final By TERMS_AND_CONDITIONS_BUTTON = By.id("terms-and-conditions-button");
-    private final By CLOSE_ICON=By.className("CloseIcon");
+    private final By CLOSE_ICON = By.className("CloseIcon");
 
     //methods
     public void navigateToLandingPage() {
@@ -22,9 +22,10 @@ public class LandingPage extends BasePage {
     public void acceptTermsAndConditions() {
         driver.findElement(TERMS_AND_CONDITIONS_BUTTON).click();
     }
-   /* public void notAcceptTermsAndConditions(){
+
+    public void notAcceptTermsAndConditions() {
         driver.findElement(CLOSE_ICON).click();
-    }*/
+    }
 
     public boolean isAcceptSuccessful() {
         if (driver.findElement(TERMS_AND_CONDITIONS_BUTTON).isDisplayed()) {

@@ -10,13 +10,10 @@ public class LogoutPage extends BasePage {
     }
 
     //locators, test datas
-    private final By LOGOUT_BUTTON = By.xpath("//a[text()='Logout']");
+
     private final By LOGIN_SUBMIT_BUTTON = By.xpath("//div[@class='formGroup']/button[text()='Login']");
 
     //methods
-    public void logout() {
-        driver.findElement(LOGOUT_BUTTON).click();
-    }
 
     public boolean isLogoutSuccessful() {
         if (driver.findElement(LOGIN_SUBMIT_BUTTON).isDisplayed()) {

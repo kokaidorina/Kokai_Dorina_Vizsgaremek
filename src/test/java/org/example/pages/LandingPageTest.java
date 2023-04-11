@@ -18,7 +18,7 @@ class LandingPageTest {
     void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = BaseTest.getWebDriver();
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         landingPage = new LandingPage(driver);
     }
@@ -31,14 +31,16 @@ class LandingPageTest {
     void testAcceptTermsAndConditions() {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
+        BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(landingPage.isAcceptSuccessful());
     }
-   /* @Test
+    @Test
     public void TestNotAcceptTermsAndConditions() {
        landingPage.navigateToLandingPage();
        landingPage.notAcceptTermsAndConditions();
+        BaseTest.makingScreenshot(driver);
        Assertions.assertFalse(landingPage.isAcceptSuccessful());
-    }*/
+    }
 
 
 

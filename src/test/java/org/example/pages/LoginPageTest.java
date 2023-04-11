@@ -37,6 +37,7 @@ public class LoginPageTest {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
         loginPage.login(userNameTestData, passwordTestData);
+        BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(loginPage.isLoginSuccessful());
     }
     @Test
@@ -46,6 +47,7 @@ public class LoginPageTest {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
         loginPage.login(userNameTestData, passwordTestData);
+        BaseTest.makingScreenshot(driver);
         Assertions.assertFalse(loginPage.isLoginSuccessful());
     }
 }
