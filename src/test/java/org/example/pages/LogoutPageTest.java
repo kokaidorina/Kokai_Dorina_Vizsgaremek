@@ -1,6 +1,10 @@
 package org.example.pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,6 +35,9 @@ public class LogoutPageTest {
     void quitBrowser() {
         driver.quit();
     }
+    @Epic("Portio website")
+    @Description("Logout by clicking 'Logout' button")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void testLogout(){
         landingPage.navigateToLandingPage();

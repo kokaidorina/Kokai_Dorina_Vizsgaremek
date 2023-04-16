@@ -1,6 +1,10 @@
 package org.example.pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,6 +31,9 @@ public class RegisterPageTest {
     void quitBrowser() {
         driver.quit();
     }
+    @Epic("Portio website")
+    @Description("Register a new user to the website")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void testRegister(){
         String userNameTestData="testA";
