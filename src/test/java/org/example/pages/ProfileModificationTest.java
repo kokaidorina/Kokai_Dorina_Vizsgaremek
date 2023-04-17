@@ -49,7 +49,7 @@ public class ProfileModificationTest {
         String emailTestData="abc@abc.hu";
         String descriptionTestData="something exciting";
         registerPage.registerNewUser(userNameTestData,passwordTestData,emailTestData,descriptionTestData);
-        landingPage.clickOnHomeButton();
+        landingPage.navigateToLandingPage();
         loginPage.login(userNameTestData,passwordTestData);
         String nameTestData="Automation";
         String bioTestData="something bio";

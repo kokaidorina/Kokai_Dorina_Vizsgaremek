@@ -3,6 +3,7 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,11 +33,13 @@ public class BlogPage extends BasePage {
         //WebElement nextPageButton = driver.findElement(NEXT_PAGE_BUTTON);
         List<String> articleTitles = new ArrayList<>();
         int pages = driver.findElements(PAGES).size() - 1;
-
+//scroll!
         do {
             Thread.sleep(5000);
             List<WebElement> blogArticles = driver.findElements(BLOG_ARTICLES);
             for (WebElement article : blogArticles) {
+                Actions actions=new Actions(driver);
+                actions.moveToElement(article).build().perform();
                 String articleTitle = article.findElement(By.xpath(".//h5/a")).getText();
                 articleTitles.add(articleTitle);
             }
