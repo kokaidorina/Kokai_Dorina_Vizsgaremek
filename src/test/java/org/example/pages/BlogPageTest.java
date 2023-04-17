@@ -37,6 +37,7 @@ public class BlogPageTest {
     }
 
    //file reading method
+    @Description("Reading a file and making a list of it.")
     public List<String> readFile() {
         List<String> namesList = new ArrayList<>();
         try {
@@ -54,7 +55,7 @@ public class BlogPageTest {
         return namesList;
     }
     @Epic("Portio website")
-    @Description("Blog article's titles checking")
+    @Description("Blog article's titles comparing with a file.")
     @Severity(SeverityLevel.NORMAL)
     @Test
     public void testBlogArticles() throws InterruptedException {

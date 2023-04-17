@@ -1,6 +1,7 @@
 package org.example.pages;
 
 import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,7 @@ public class BaseTest {
         options.addArguments("start-maximized");
         return new ChromeDriver(options);
     }
+    @Attachment
     public static void makingScreenshot(WebDriver driver){
         Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }

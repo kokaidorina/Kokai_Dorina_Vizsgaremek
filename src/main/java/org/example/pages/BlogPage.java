@@ -24,16 +24,13 @@ public class BlogPage extends BasePage {
     private final By PAGES = By.xpath("//ul[@class='pagination justify-content-center pagination-lg']/li");
 
     //methods
+
     public void clickSeeAllPostButton() {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(SEE_ALL_BUTTON)).click();
-        //driver.findElement(SEE_ALL_BUTTON).click();
     }
-
     public List<String> getAllBlogPost() throws InterruptedException {
-        //WebElement nextPageButton = driver.findElement(NEXT_PAGE_BUTTON);
         List<String> articleTitles = new ArrayList<>();
         int pages = driver.findElements(PAGES).size() - 1;
-//scroll!
         do {
             Thread.sleep(5000);
             List<WebElement> blogArticles = driver.findElements(BLOG_ARTICLES);
@@ -45,7 +42,6 @@ public class BlogPage extends BasePage {
             }
            if (pages!=1) {
                driver.findElement(NEXT_PAGE_BUTTON).click();
-                //Thread.sleep(2000);
             }
             pages-=1;
         }

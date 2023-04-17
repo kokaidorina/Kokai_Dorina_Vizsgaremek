@@ -5,13 +5,18 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class LoginPageTest {
@@ -19,6 +24,20 @@ public class LoginPageTest {
     private LandingPage landingPage;
     private RegisterPage registerPage;
     private LoginPage loginPage;
+    private static final Map<String,String> credentials=new HashMap<>();
+    @BeforeAll
+    static void beforeAll() throws IOException, ParseException {
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(new FileReader("src/test/resources/loginDatas.json"));
+
+        JSONArray solutions = (JSONArray) obj;
+        for (Object solution : solutions) {
+            String key =  ((JSONObject) solution).get("login").toString();
+            String value = ((JSONObject) solution).get("password").toString();
+            credentials.put(key, value);
+        }
+    }
 
     @BeforeEach
     void setUp() {
@@ -46,6 +65,20 @@ public class LoginPageTest {
         loginPage.login(userNameTestData, passwordTestData);
         BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(loginPage.isLoginSuccessful());
+    }
+    @Epic("Portio website")
+    @Description("Login with multiple valid username and passwords repeatedly from file.")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test
+    public void testLoginMultipleUsers(){
+        landingPage.navigateToLandingPage();
+        landingPage.acceptTermsAndConditions();
+        for(String key:credentials.keySet()){
+            loginPage.login(key, credentials.get(key));
+            BaseTest.makingScreenshot(driver);
+            Assertions.assertTrue(loginPage.isLoginSuccessful());
+            landingPage.navigateToLandingPage();
+        }
     }
     @Epic("Portio website")
     @Description("Login with invalid username and password")
