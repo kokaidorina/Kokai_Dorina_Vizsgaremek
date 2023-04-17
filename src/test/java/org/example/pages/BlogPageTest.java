@@ -36,7 +36,6 @@ public class BlogPageTest {
         driver.quit();
     }
 
-   //file reading method
     @Description("Reading a file and making a list of it.")
     public List<String> readFile() {
         List<String> namesList = new ArrayList<>();
@@ -56,14 +55,16 @@ public class BlogPageTest {
     }
     @Epic("Portio website")
     @Description("Blog article's titles comparing with a file.")
+    @DisplayName("Blog article's titles comparing with a file.")
     @Severity(SeverityLevel.NORMAL)
     @Test
-    public void testBlogArticles() throws InterruptedException {
+    public void testBlogArticlesTitle() throws InterruptedException {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
         String userNameTestData="lovasia";
         String passwordTestData="kispal123";
         loginPage.login(userNameTestData, passwordTestData);
+        Thread.sleep(2000);
         loginPage.clickOnBlogButton();
         blogPage.clickSeeAllPostButton();
         Thread.sleep(2000);
@@ -71,4 +72,5 @@ public class BlogPageTest {
         List<String> expectedResult=readFile();
         Assertions.assertEquals(expectedResult, actualResult);
     }
+
 }

@@ -5,10 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
@@ -37,6 +34,7 @@ public class LogoutPageTest {
     }
     @Epic("Portio website")
     @Description("Logout by clicking 'Logout' button")
+    @DisplayName("Logout by clicking 'Logout' button")
     @Severity(SeverityLevel.CRITICAL)
     @Test
     public void testLogout(){

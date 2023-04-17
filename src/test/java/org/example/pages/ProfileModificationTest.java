@@ -5,10 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
@@ -39,6 +36,7 @@ public class ProfileModificationTest {
     }
     @Epic("Portio website")
     @Description("Profile modification")
+    @DisplayName("Profile modification")
     @Severity(SeverityLevel.NORMAL)
     @Test
     public void testProfileModification(){

@@ -6,10 +6,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
@@ -33,6 +30,7 @@ class LandingPageTest {
 
     @Epic("Portio website")
     @Description("Accepting terms and conditions")
+    @DisplayName("Accepting terms and conditions")
     @Severity(SeverityLevel.NORMAL)
     @Test
     void testAcceptTermsAndConditions() {
@@ -42,8 +40,9 @@ class LandingPageTest {
         Assertions.assertTrue(landingPage.isAcceptSuccessful());
     }
     @Epic("Portio website")
-    @Description("Not accepting terms and conditions")
     @Severity(SeverityLevel.NORMAL)
+    @Description("Not accepting terms and conditions")
+    @DisplayName("Not accepting terms and conditions")
     @Test
     public void TestNotAcceptTermsAndConditions() {
        landingPage.navigateToLandingPage();
@@ -51,7 +50,5 @@ class LandingPageTest {
         BaseTest.makingScreenshot(driver);
        Assertions.assertFalse(landingPage.isAcceptSuccessful());
     }
-
-
 
 }

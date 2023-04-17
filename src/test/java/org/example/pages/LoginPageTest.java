@@ -55,6 +55,7 @@ public class LoginPageTest {
     }
     @Epic("Portio website")
     @Description("Login with valid username and password")
+    @DisplayName("Login with valid username and password")
     @Severity(SeverityLevel.CRITICAL)
     @Test
     public void testLogin(){
@@ -68,6 +69,7 @@ public class LoginPageTest {
     }
     @Epic("Portio website")
     @Description("Login with multiple valid username and passwords repeatedly from file.")
+    @DisplayName("Login with multiple valid username and passwords repeatedly from file.")
     @Severity(SeverityLevel.CRITICAL)
     @Test
     public void testLoginMultipleUsers(){
@@ -82,6 +84,7 @@ public class LoginPageTest {
     }
     @Epic("Portio website")
     @Description("Login with invalid username and password")
+    @DisplayName("Login with invalid username and password")
     @Severity(SeverityLevel.CRITICAL)
     @Test
     public void testLoginWithInvalidDatas(){

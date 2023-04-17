@@ -5,10 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
@@ -33,6 +30,7 @@ public class RegisterPageTest {
     }
     @Epic("Portio website")
     @Description("Register a new user to the website")
+    @DisplayName("Register a new user to the website")
     @Severity(SeverityLevel.CRITICAL)
     @Test
     public void testRegister(){
