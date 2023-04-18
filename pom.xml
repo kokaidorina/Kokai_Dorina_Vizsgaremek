@@ -12,6 +12,9 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <aspectj.version>1.9.4</aspectj.version>
+            <compiler.version>1.7</compiler.version>
+
     </properties>
     <dependencies>
         <dependency>
@@ -93,6 +96,7 @@
             <artifactId>allure-grpc</artifactId>
             <version>2.21.0</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -103,6 +107,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <testFailureIgnore>true</testFailureIgnore>
                     <forkCount>3</forkCount>
