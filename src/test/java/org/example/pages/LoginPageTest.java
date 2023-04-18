@@ -67,11 +67,11 @@ public class LoginPageTest {
         BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(loginPage.isLoginSuccessful());
     }
+    @Test
     @Epic("Portio website")
     @Description("Login with multiple valid username and passwords repeatedly from file.")
     @DisplayName("Login with multiple valid username and passwords repeatedly from file.")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
     public void testLoginMultipleUsers(){
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
@@ -82,11 +82,11 @@ public class LoginPageTest {
             landingPage.navigateToLandingPage();
         }
     }
+    @Test
     @Epic("Portio website")
     @Description("Login with invalid username and password")
     @DisplayName("Login with invalid username and password")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
     public void testLoginWithInvalidDatas(){
         String userNameTestData="invalid";
         String passwordTestData="password";

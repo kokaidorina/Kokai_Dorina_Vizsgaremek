@@ -28,22 +28,22 @@ class LandingPageTest {
         driver.quit();
     }
 
+    @Test
     @Epic("Portio website")
     @Description("Accepting terms and conditions")
     @DisplayName("Accepting terms and conditions")
     @Severity(SeverityLevel.NORMAL)
-    @Test
     void testAcceptTermsAndConditions() {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
         BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(landingPage.isAcceptSuccessful());
     }
+    @Test
     @Epic("Portio website")
     @Severity(SeverityLevel.NORMAL)
     @Description("Not accepting terms and conditions")
     @DisplayName("Not accepting terms and conditions")
-    @Test
     public void TestNotAcceptTermsAndConditions() {
        landingPage.navigateToLandingPage();
        landingPage.notAcceptTermsAndConditions();

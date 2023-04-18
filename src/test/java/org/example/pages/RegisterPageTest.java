@@ -28,11 +28,11 @@ public class RegisterPageTest {
     void quitBrowser() {
         driver.quit();
     }
+    @Test
     @Epic("Portio website")
     @Description("Register a new user to the website")
     @DisplayName("Register a new user to the website")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
     public void testRegister(){
         String userNameTestData="testA";
         String passwordTestData="123";

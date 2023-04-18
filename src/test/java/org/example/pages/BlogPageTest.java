@@ -53,11 +53,11 @@ public class BlogPageTest {
         }
         return namesList;
     }
+    @Test
     @Epic("Portio website")
     @Description("Blog article's titles comparing with a file.")
     @DisplayName("Blog article's titles comparing with a file.")
     @Severity(SeverityLevel.NORMAL)
-    @Test
     public void testBlogArticlesTitle() throws InterruptedException {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();

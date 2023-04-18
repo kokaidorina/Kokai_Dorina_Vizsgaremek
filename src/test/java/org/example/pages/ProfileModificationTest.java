@@ -34,11 +34,11 @@ public class ProfileModificationTest {
     void quitBrowser() {
         driver.quit();
     }
+    @Test
     @Epic("Portio website")
     @Description("Profile modification")
     @DisplayName("Profile modification")
     @Severity(SeverityLevel.NORMAL)
-    @Test
     public void testProfileModification(){
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();

@@ -7,15 +7,15 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-
 import java.time.Duration;
 
-public class LogoutPageTest {
+@Epic("Portio website")
+public class ContactPageTest {
     WebDriver driver;
     private LandingPage landingPage;
-    private RegisterPage registerPage;
     private LoginPage loginPage;
-    private LogoutPage logoutPage;
+    private ContactPage contactPage;
+
 
     @BeforeEach
     void setUp() {
@@ -24,27 +24,30 @@ public class LogoutPageTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         landingPage = new LandingPage(driver);
-        registerPage=new RegisterPage(driver);
         loginPage=new LoginPage(driver);
-        logoutPage=new LogoutPage(driver);
+        contactPage=new ContactPage(driver);
     }
-    @AfterEach
+    //@AfterEach
     void quitBrowser() {
         driver.quit();
     }
+
     @Test
-    @Epic("Portio website")
-    @Description("Logout by clicking 'Logout' button")
-    @DisplayName("Logout by clicking 'Logout' button")
-    @Severity(SeverityLevel.CRITICAL)
-    public void testLogout(){
+    //@Epic("Portio website")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Sending a message with filling all fields with valid data.")
+    @DisplayName("Sending a message with filling all fields with valid data.")
+    public void testContact(){
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
         String userNameTestData="lovasia";
         String passwordTestData="kispal123";
-        loginPage.login(userNameTestData,passwordTestData);
-        logoutPage.logout();
-        BaseTest.makingScreenshot(driver);
-        Assertions.assertTrue(logoutPage.isLogoutSuccessful());
+        loginPage.login(userNameTestData, passwordTestData);
+        contactPage.clickOnContactButton();
+        contactPage.clickOnGetInTouch();
+        contactPage.fillContactForm("Andras", "lovasi@kispal.hu", "Emese mostmár indul a buszod.");
+        Assertions.assertTrue(contactPage.isMessageSent());
     }
+
+
 }
