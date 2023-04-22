@@ -17,7 +17,6 @@ public class ContactPage extends BasePage{
 
     //locators, test datas
     private final By GET_IN_TOUCH_BTN= By.xpath("//div[@class='footer__cta_action']/a[@href='https://lennertamas.github.io/portio/contact']");
-    private final By MESSAGE=By.id("contact-form-status");
     /*private final By NAME_CONTACT_FORM=By.xpath("//input[@name='Name']");
     private final By EMAIL_CONTACT_FORM=By.xpath("//input[@name='email']");
     private final By MESSAGE_CONTACT_FORM=By.id("message");
@@ -57,7 +56,7 @@ public class ContactPage extends BasePage{
     }
     @Step("Validating if the message is sent")
     public boolean isMessageSent(){
-        if(driver.findElement(MESSAGE).isDisplayed()){
+        if(driver.getCurrentUrl().equals(LandingPage.LANDING_PAGE)){
             return true;
         }
         else return false;

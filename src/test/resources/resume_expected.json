@@ -1,0 +1,18 @@
+[
+  {
+    "date":"2001-2005",
+    "company": "LexCorp"
+  },
+  {
+    "date":"2010-2016",
+    "company": "Aperture Science"
+  },
+  {
+    "date":"2005-2010",
+    "company": "ACME Inc."
+  },
+  {
+    "date":"2016-Present",
+    "company": "Umbrella co."
+  }
+]

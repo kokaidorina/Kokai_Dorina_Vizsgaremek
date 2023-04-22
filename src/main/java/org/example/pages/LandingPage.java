@@ -11,7 +11,7 @@ public class LandingPage extends BasePage {
     }
 
     //locators, test datas
-    String LANDING_PAGE = "https://lennertamas.github.io/portio/";
+    static String LANDING_PAGE = "https://lennertamas.github.io/portio/";
     private final By TERMS_AND_CONDITIONS_BUTTON = By.id("terms-and-conditions-button");
     private final By CLOSE_ICON = By.className("CloseIcon");
 

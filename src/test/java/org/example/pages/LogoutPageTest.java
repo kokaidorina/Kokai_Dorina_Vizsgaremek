@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
+@Epic("Portio website")
 public class LogoutPageTest {
     WebDriver driver;
     private LandingPage landingPage;
@@ -33,7 +34,6 @@ public class LogoutPageTest {
         driver.quit();
     }
     @Test
-    @Epic("Portio website")
     @Description("Logout by clicking 'Logout' button")
     @DisplayName("Logout by clicking 'Logout' button")
     @Severity(SeverityLevel.CRITICAL)

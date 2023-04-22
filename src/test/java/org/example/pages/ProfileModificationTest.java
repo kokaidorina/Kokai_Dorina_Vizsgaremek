@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
+@Epic("Portio website")
 public class ProfileModificationTest {
     WebDriver driver;
     private LandingPage landingPage;
@@ -35,7 +36,6 @@ public class ProfileModificationTest {
         driver.quit();
     }
     @Test
-    @Epic("Portio website")
     @Description("Profile modification")
     @DisplayName("Profile modification")
     @Severity(SeverityLevel.NORMAL)

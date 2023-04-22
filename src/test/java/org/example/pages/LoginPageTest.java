@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+@Epic("Portio website")
 public class LoginPageTest {
     WebDriver driver;
     private LandingPage landingPage;
@@ -53,11 +54,11 @@ public class LoginPageTest {
     void quitBrowser() {
         driver.quit();
     }
-    @Epic("Portio website")
+
+    @Test
     @Description("Login with valid username and password")
     @DisplayName("Login with valid username and password")
     @Severity(SeverityLevel.CRITICAL)
-    @Test
     public void testLogin(){
         String userNameTestData="lovasia";
         String passwordTestData="kispal123";
@@ -68,7 +69,6 @@ public class LoginPageTest {
         Assertions.assertTrue(loginPage.isLoginSuccessful());
     }
     @Test
-    @Epic("Portio website")
     @Description("Login with multiple valid username and passwords repeatedly from file.")
     @DisplayName("Login with multiple valid username and passwords repeatedly from file.")
     @Severity(SeverityLevel.CRITICAL)
@@ -83,7 +83,6 @@ public class LoginPageTest {
         }
     }
     @Test
-    @Epic("Portio website")
     @Description("Login with invalid username and password")
     @DisplayName("Login with invalid username and password")
     @Severity(SeverityLevel.CRITICAL)

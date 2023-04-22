@@ -27,17 +27,16 @@ public class ContactPageTest {
         loginPage=new LoginPage(driver);
         contactPage=new ContactPage(driver);
     }
-    //@AfterEach
+    @AfterEach
     void quitBrowser() {
         driver.quit();
     }
 
     @Test
-    //@Epic("Portio website")
     @Severity(SeverityLevel.NORMAL)
     @Description("Sending a message with filling all fields with valid data.")
     @DisplayName("Sending a message with filling all fields with valid data.")
-    public void testContact(){
+    public void testContactWhithValid(){
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
         String userNameTestData="lovasia";
@@ -46,8 +45,27 @@ public class ContactPageTest {
         contactPage.clickOnContactButton();
         contactPage.clickOnGetInTouch();
         contactPage.fillContactForm("Andras", "lovasi@kispal.hu", "Emese mostmár indul a buszod.");
+        BaseTest.makingScreenshot(driver);
         Assertions.assertTrue(contactPage.isMessageSent());
     }
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Sending a message without filling all input fields")
+    @DisplayName("Sending a message without filling all input fields")
+    public void testContactWithEmptyFields(){
+        landingPage.navigateToLandingPage();
+        landingPage.acceptTermsAndConditions();
+        String userNameTestData="lovasia";
+        String passwordTestData="kispal123";
+        loginPage.login(userNameTestData, passwordTestData);
+        contactPage.clickOnContactButton();
+        contactPage.clickOnGetInTouch();
+        contactPage.fillContactForm("Andras", "", "This is a message.");
+        BaseTest.makingScreenshot(driver);
+        Assertions.assertTrue(contactPage.isMessageSent());
+    }
+
+
 
 
 }

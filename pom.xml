@@ -12,8 +12,8 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <aspectj.version>1.9.4</aspectj.version>
-            <compiler.version>1.7</compiler.version>
+        <aspectj.version>1.9.4</aspectj.version>
+        <compiler.version>1.7</compiler.version>
 
     </properties>
     <dependencies>
@@ -122,9 +122,11 @@
                     </properties>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
-                        <junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
+                        <junit.jupiter.extensions.autodetection.enabled>true
+                        </junit.jupiter.extensions.autodetection.enabled>
                         <junit.jupiter.execution.parallel.enabled>true</junit.jupiter.execution.parallel.enabled>
-                        <junit.jupiter.execution.parallel.config.strategy>dynamic</junit.jupiter.execution.parallel.config.strategy>
+                        <junit.jupiter.execution.parallel.config.strategy>dynamic
+                        </junit.jupiter.execution.parallel.config.strategy>
                     </systemPropertyVariables>
                 </configuration>
                 <dependencies>

@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
+@Epic("Portio website")
 class LandingPageTest {
     WebDriver driver;
     private LandingPage landingPage;
@@ -29,7 +30,6 @@ class LandingPageTest {
     }
 
     @Test
-    @Epic("Portio website")
     @Description("Accepting terms and conditions")
     @DisplayName("Accepting terms and conditions")
     @Severity(SeverityLevel.NORMAL)
@@ -40,7 +40,6 @@ class LandingPageTest {
         Assertions.assertTrue(landingPage.isAcceptSuccessful());
     }
     @Test
-    @Epic("Portio website")
     @Severity(SeverityLevel.NORMAL)
     @Description("Not accepting terms and conditions")
     @DisplayName("Not accepting terms and conditions")
