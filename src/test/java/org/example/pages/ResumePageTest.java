@@ -48,13 +48,14 @@ public class ResumePageTest {
     @Description("Checking resume page experiences")
     @DisplayName("Checking resume page experiences")
     @Severity(SeverityLevel.CRITICAL)
-    public void testResumeExperiences() throws IOException, ParseException {
+    public void testResumeExperiences() throws IOException, ParseException, InterruptedException {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
         String userNameTestData = "lovasia";
         String passwordTestData = "kispal123";
         loginPage.login(userNameTestData, passwordTestData);
         landingPage.clickOnResumeButton();
+        Thread.sleep(5000);
         resumePage.clickOnExperiences();
 
         final Map<String,String> expectedResult=new HashMap<>();
