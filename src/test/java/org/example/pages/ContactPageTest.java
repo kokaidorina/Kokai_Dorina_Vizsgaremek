@@ -62,7 +62,7 @@ public class ContactPageTest {
         contactPage.clickOnGetInTouch();
         contactPage.fillContactForm("Andras", "", "This is a message.");
         BaseTest.makingScreenshot(driver);
-        Assertions.assertTrue(contactPage.isMessageSent());
+        Assertions.assertFalse(contactPage.isMessageSent());
     }
 
 
