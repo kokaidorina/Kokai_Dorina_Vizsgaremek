@@ -1,11 +1,11 @@
 package org.example.pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -36,6 +36,9 @@ public class AboutPageTest {
     }
 
     @Test
+    @Description("Checking About page's content and write it to a file.")
+    @DisplayName("Checking About page's content.")
+    @Severity(SeverityLevel.NORMAL)
     public void testAboutTextToFile() throws IOException {
         String userNameTestData="lovasia";
         String passwordTestData="kispal123";

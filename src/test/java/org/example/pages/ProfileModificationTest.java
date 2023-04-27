@@ -26,34 +26,58 @@ public class ProfileModificationTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         landingPage = new LandingPage(driver);
-        registerPage=new RegisterPage(driver);
-        loginPage=new LoginPage(driver);
-        logoutPage=new LogoutPage(driver);
-        profileModificationPage=new ProfileModificationPage(driver);
+        registerPage = new RegisterPage(driver);
+        loginPage = new LoginPage(driver);
+        logoutPage = new LogoutPage(driver);
+        profileModificationPage = new ProfileModificationPage(driver);
     }
+
     @AfterEach
     void quitBrowser() {
         driver.quit();
     }
+
     @Test
     @Description("Profile modification")
     @DisplayName("Profile modification")
     @Severity(SeverityLevel.NORMAL)
-    public void testProfileModification(){
+    public void testProfileModification() {
         landingPage.navigateToLandingPage();
         landingPage.acceptTermsAndConditions();
-        String userNameTestData="testA";
-        String passwordTestData="123";
-        String emailTestData="abc@abc.hu";
-        String descriptionTestData="something exciting";
-        registerPage.registerNewUser(userNameTestData,passwordTestData,emailTestData,descriptionTestData);
+        String userNameTestData = "testA";
+        String passwordTestData = "123";
+        String emailTestData = "abc@abc.hu";
+        String descriptionTestData = "something exciting";
+        registerPage.registerNewUser(userNameTestData, passwordTestData, emailTestData, descriptionTestData);
         landingPage.navigateToLandingPage();
-        loginPage.login(userNameTestData,passwordTestData);
-        String nameTestData="Automation";
-        String bioTestData="something bio";
-        String phoneTestData="+36123456789";
+        loginPage.login(userNameTestData, passwordTestData);
+        String nameTestData = "Automation";
+        String bioTestData = "something bio";
+        String phoneTestData = "+36123456789";
+        profileModificationPage.clickOnProfileButton();
         profileModificationPage.modifyProfile(nameTestData, bioTestData, phoneTestData);
         BaseTest.makingScreenshot(driver);
-        Assertions.assertTrue(profileModificationPage.isProfileModificationSuccesful());
+        Assertions.assertTrue(profileModificationPage.isProfileModificationSuccessful());
+    }
+
+    @Test
+    @Description("Delete profile")
+    @DisplayName("Delete profile")
+    @Severity(SeverityLevel.CRITICAL)
+    public void testDeleteAccount() {
+        landingPage.navigateToLandingPage();
+        landingPage.acceptTermsAndConditions();
+        String userNameTestData = "testB";
+        String passwordTestData = "12345";
+        String emailTestData = "abc@cba.hu";
+        String descriptionTestData = "something exciting";
+        registerPage.registerNewUser(userNameTestData, passwordTestData, emailTestData, descriptionTestData);
+        landingPage.navigateToLandingPage();
+        loginPage.login(userNameTestData, passwordTestData);
+        profileModificationPage.clickOnProfileButton();
+        profileModificationPage.deleteAccount();
+        BaseTest.makingScreenshot(driver);
+        Assertions.assertTrue(profileModificationPage.isProfileDeleted());
+
     }
 }
